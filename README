@@ -1,0 +1,78 @@
+App-Myinst - Implements very limited features of a legendary command-line tool at an iconic internet company.
+
+The user of this module is expected to create a small driver script like this:
+
+    $ vi myinst.pl
+    #!/usr/bin/perl
+    
+    use strict;
+    use warnings;
+    use App::Myinst;
+
+    App::Myinst->run();
+    
+and run with options.
+
+Usage: ./myinst.pl <command> -h host1,host2 -j 4 "<remote_command>"
+Implements very limited features of a legendary command-line tool at an iconic internet company.
+
+    <command>           command to myinst.  currently, only "ssh" is supported
+    -h                  hostname, can be a comma-separated list
+    -H                  specify a file with hostnames in it
+    -j                  number of jobs to execute in parallel.  default: 1
+    -f                  flag to save output in a file per host.  default: cwd
+    -dir                if -f is specified, you may specify the output directory
+    -d                  debug mode
+    <remote_command>    the command to run on the remote hosts
+    
+Note on testing:
+This module wraps around ssh and as such, requires authentication.
+I have included an interactive test_deeply.pl script for those interested in testing.
+
+PREREQUISITES
+
+The following modules are required by Net::SSH::Tunnel
+    Parallel::ForkManager
+    Log::Log4perl
+
+INSTALLATION
+
+To install this module, run the following commands:
+
+	perl Makefile.PL
+	make
+	make test
+	make install
+
+SUPPORT AND DOCUMENTATION
+
+After installing, you can find documentation for this module with the
+perldoc command.
+
+    perldoc App::Myinst
+
+You can also look for information at:
+
+    RT, CPAN's request tracker (report bugs here)
+        http://rt.cpan.org/NoAuth/Bugs.html?Dist=App-Myinst
+
+    AnnoCPAN, Annotated CPAN documentation
+        http://annocpan.org/dist/App-Myinst
+
+    CPAN Ratings
+        http://cpanratings.perl.org/d/App-Myinst
+
+    Search CPAN
+        http://search.cpan.org/dist/App-Myinst/
+
+
+LICENSE AND COPYRIGHT
+
+Copyright (C) 2012 Satoshi Yagi
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of either: the GNU General Public License as published
+by the Free Software Foundation; or the Artistic License.
+
+See http://dev.perl.org/licenses/ for more information.
+
