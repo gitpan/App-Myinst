@@ -15,11 +15,11 @@ App::Myinst - Implements very limited features of a legendary command-line tool 
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 
 =head1 SYNOPSIS
@@ -108,7 +108,7 @@ sub init {
 
     $self->{ pm } = Parallel::ForkManager->new( $self->{ opts }->{ parallel } );
     
-    $self->{ opts }->{ args } = join( '', @ARGV );
+    $self->{ opts }->{ args } = join( ' ', @ARGV );
     $self->usage() unless( (  $self->{ opts }->{ host } || -f $self->{ opts }->{ hostfile } ) && $self->{ opts }->{ args } );
     Log::Log4perl->easy_init($DEBUG) if $self->{ opts }->{ debug };
 }

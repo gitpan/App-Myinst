@@ -1,4 +1,7 @@
 Revision history for App-Myinst
 
+0.02    2012/9/20
+        Fixing a small issue with how @ARGV is join'ed
+
 0.01    2012/9/20
         Initial Release
