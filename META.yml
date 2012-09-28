@@ -1,5 +1,5 @@
 ---
-abstract: 'Implements very limited features of a legendary command-line tool at an iconic internet company.'
+abstract: 'Implements very limited features of a legendary command-line tool'
 author:
   - 'Satoshi Yagi <satoshi.yagi@yahoo.com>'
 build_requires:
@@ -21,4 +21,4 @@ requires:
   Log::Log4perl: 0
   Parallel::ForkManager: 0
   Test::More: 0
-version: 0.02
+version: 0.03

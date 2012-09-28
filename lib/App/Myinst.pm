@@ -11,15 +11,16 @@ use Getopt::Long qw(:config no_ignore_case); # needed to support -h and -H
 
 =head1 NAME
 
-App::Myinst - Implements very limited features of a legendary command-line tool at an iconic internet company.
+App::Myinst - Implements very limited features of a legendary command-line tool
+at an iconic internet company.
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 =head1 SYNOPSIS
@@ -38,10 +39,11 @@ The user of this module is expected to create a small driver script like this:
 and run with options.
 
 Usage: ./myinst.pl <command> -h host1,host2 -j 4 "<remote_command>"
-Implements very limited features of a legendary command-line tool at an iconic internet company.
+Implements very limited features of a legendary command-line tool at an iconic
+internet company.
 
     <command>           command to myinst.  currently, only "ssh" is supported
-    -h                  hostname, can be a comma-separated list
+    -h                  hostname, can be a comma-separated list with username like user@host
     -H                  specify a file with hostnames in it
     -j                  number of jobs to execute in parallel.  default: 1
     -f                  flag to save output in a file per host.  default: cwd
@@ -51,7 +53,8 @@ Implements very limited features of a legendary command-line tool at an iconic i
     
 Note on testing:
 This module wraps around ssh and as such, requires authentication.
-I have included an interactive test_deeply.pl script for those interested in testing.
+I have included an interactive test_deeply.pl script for those interested in
+testing.
 
 =head1 SUBROUTINES/METHODS
 
@@ -85,7 +88,10 @@ sub init {
     # first argument is a command, like so:
     # myinst.pl <command> -h <hosts> -j 4 <rest_of_args>
     my $command = shift @ARGV;
-    croak "Command not entered" unless( $command );
+    unless( $command ) {
+        print "command not found\n";
+        $self->usage();
+    }
     
     $self->{ opts } = {
         host            => '',
@@ -205,12 +211,13 @@ sub build_hosts {
 sub usage {
     my $self = shift;
 
-    print <<USAGE;
+    print <<'USAGE';
 Usage: ./myinst.pl <command> -h host1,host2 -j 4 "<remote_command>"
-Implements very limited features of a legendary command-line tool at an iconic internet company.
+Implements very limited features of a legendary command-line tool at an iconic
+internet company.
 
     <command>           command to myinst.  currently, only "ssh" is supported
-    -h                  hostname, can be a comma-separated list
+    -h                  hostname, can be a comma-separated list with username like user@host
     -H                  specify a file with hostnames in it
     -j                  number of jobs to execute in parallel.  default: 1
     -f                  flag to save output in a file per host.  default: cwd
