@@ -16,11 +16,11 @@ at an iconic internet company.
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 
 =head1 SYNOPSIS
@@ -158,7 +158,7 @@ sub run_ssh {
     
         if ( $self->{ opts }->{ save_to_file } ) {
             my $file = $self->{ opts }->{ directory } . "/$host.log";
-            DEBUG "savinig to $file";
+            DEBUG "saving to $file";
             my $output = `$command`;
             $ret = $? >> 8;
             open( my $fh, ">", $file ) or die "Could not open $file: $!";
