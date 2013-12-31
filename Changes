@@ -1,4 +1,8 @@
 Revision history for App-Myinst
+
+0.05    2013/12/30
+        Cleaning up POD per Uncle Bob's style
+
 0.04    2012/10/06
         Fixing a typo
 

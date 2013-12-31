@@ -16,11 +16,11 @@ at an iconic internet company.
 
 =head1 VERSION
 
-Version 0.04
+Version 0.05
 
 =cut
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 
 =head1 SYNOPSIS
@@ -60,9 +60,7 @@ testing.
 
 =head2 new
 
-	Description: The constructor.  Creates object then calls init().
-	Arguments: none
-	Returns: the object
+	The constructor.  Creates object then calls init().
 
 =cut
 
@@ -76,9 +74,7 @@ sub new {
 
 =head2 init
 
-	Description: Arg parser.  Initializes defaults, then parses options.
-	Arguments: none
-	Returns: none
+	Arg parser.  Initializes defaults, then parses options.
 
 =cut
 
@@ -121,9 +117,7 @@ sub init {
 
 =head2 run
 
-    Description: The driver method.  Determines the next action based on the options passed in.
-    Arguments: none
-    Returns: none
+    The driver method.  Determines the next action based on the options passed in.
 
 =cut
 
@@ -138,9 +132,7 @@ sub run {
 
 =head2 run_ssh
 
-    Description: Do the ssh command business.
-    Arguments: none
-    Returns: none, but can croak on errors
+    Do the ssh command business.
 
 =cut
 
@@ -178,10 +170,8 @@ sub run_ssh {
 
 =head2 build_hosts
 
-    Description: Parses options, open files (if needed) and returns hostlist
-    Arguments: none (object should have everything)
-    Returns: array of hosts
-
+    Parses options, open files (if needed) and returns hostlist
+    
 =cut
 
 sub build_hosts {
@@ -202,9 +192,7 @@ sub build_hosts {
 
 =head2 usage
 
-    Description: Prints usage and exits.
-    Arguments: none
-    Returns: none
+    Prints usage and exits.
 
 =cut
 
@@ -276,7 +264,7 @@ L<http://search.cpan.org/dist/App-Myinst/>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2012 Satoshi Yagi.
+Copyright 2012-2013 Satoshi Yagi.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of either: the GNU General Public License as published
